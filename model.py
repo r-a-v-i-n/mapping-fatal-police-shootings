@@ -1,6 +1,7 @@
 """Models for project."""
 
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -37,9 +38,9 @@ class Resource(db.Model):
     phone = db.Column(db.Integer, nullable=True)
     city = db.Column(db.String(25), nullable=False)
     state = db.Column(db.String(25), nullable=False)
-    contributor = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
-    user = db.relationship('User', backref='resources')
+    contributor = db.relationship('User', backref='resources')
 
     def __repr__(self):
         return f'<Resources org_id={self.org_id} org_name={self.org_name} city={self.city} state={self.state}>'
@@ -59,6 +60,28 @@ class Vote(db.Model):
 
     def __repr__(self):
         return f'<Votes user_id = {self.user_id} org_id = {self.org_id} upvote_downvote = {self.upvote_downvote}>'
+
+
+class Wapo(db.Model):
+    """ WaPo dataset table """
+    __tablename__ = 'dataset'
+
+    data_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=True)
+    date = db.Column(db.DateTime, nullable=False)
+    manner_of_death = db.Column()
+    armed = db.Column()
+    age =
+    gender =
+    race =
+    city =
+    state =
+    mental_illness =
+    threat_level =
+    flee =
+    body_cam =
+    latitude_longitude =
+    is_geocoding_exact =
 
 
 
