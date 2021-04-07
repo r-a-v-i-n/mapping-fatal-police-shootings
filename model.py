@@ -64,24 +64,25 @@ class Vote(db.Model):
 
 class Wapo(db.Model):
     """ WaPo dataset table """
-    __tablename__ = 'dataset'
+    __tablename__ = 'data'
 
     data_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=True)
     date = db.Column(db.DateTime, nullable=False)
-    manner_of_death = db.Column()
-    armed = db.Column()
-    age =
-    gender =
-    race =
-    city =
-    state =
-    mental_illness =
-    threat_level =
-    flee =
-    body_cam =
-    latitude_longitude =
-    is_geocoding_exact =
+    manner_of_death = db.Column(db.String, nullable=False)
+    armed = db.Column(db.String(25), nullable=True)
+    age = db.Column(db.Integer, nullable=True)
+    gender = db.Column(db.String(2), nullable=True)
+    race = db.Column(db.String(2), nullable=True)
+    city = db.Column(db.String(25), nullable=False)
+    state = db.Column(db.String(2), nullable=False)
+    mental_illness = db.Column(db.Boolean, nullable=True)
+    threat_level = db.Column(db.String(25), nullable=True)
+    flee = db.Column(db.String(25), nullable=True)
+    body_cam = db.Column(db.Boolean, nullable=True)
+    latitude = db.Column(db.Float, nullable=True)
+    longitude = db.Column(db.Float, nullable=True)
+    is_geocoding_exact = db.Column(db.Boolean, nullable=False)
 
 
 
