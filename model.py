@@ -6,6 +6,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 
+
 # Replace this with your code!
 class User(db.Model):
     """A user."""
@@ -24,6 +25,7 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User user_id={self.user_id} username={self.username} city={self.city} state={self.state}>'
+
 
 
 class Resource(db.Model):
@@ -46,6 +48,7 @@ class Resource(db.Model):
         return f'<Resources org_id={self.org_id} org_name={self.org_name} city={self.city} state={self.state}>'
 
 
+
 class Vote(db.Model):
     """ An upvote or downvote on a resource/donation """
     __tablename__ = 'votes'
@@ -60,6 +63,7 @@ class Vote(db.Model):
 
     def __repr__(self):
         return f'<Votes user_id = {self.user_id} org_id = {self.org_id} upvote_downvote = {self.upvote_downvote}>'
+
 
 
 class Wapo(db.Model):
@@ -83,6 +87,10 @@ class Wapo(db.Model):
     latitude = db.Column(db.Float, nullable=True)
     longitude = db.Column(db.Float, nullable=True)
     is_geocoding_exact = db.Column(db.Boolean, nullable=False)
+
+    def __repr__(self):
+        return f'<Wapo data_id = {self.data_id} date = {self.date} manner_of_death = {self.manner_of_death} age = {self.age} gender = {self.gender} race = {self.race} city = {self.city} state = {self.state}>'
+
 
 
 
