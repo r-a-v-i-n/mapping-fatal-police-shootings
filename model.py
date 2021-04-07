@@ -80,12 +80,12 @@ class Wapo(db.Model):
     race = db.Column(db.String(2), nullable=True)
     city = db.Column(db.String(25), nullable=False)
     state = db.Column(db.String(2), nullable=False)
-    mental_illness = db.Column(db.Boolean, nullable=True)
+    signs_of_mental_illness = db.Column(db.Boolean, nullable=True)
     threat_level = db.Column(db.String(25), nullable=True)
     flee = db.Column(db.String(25), nullable=True)
-    body_cam = db.Column(db.Boolean, nullable=True)
-    latitude = db.Column(db.Float, nullable=True)
+    body_camera = db.Column(db.Boolean, nullable=True)
     longitude = db.Column(db.Float, nullable=True)
+    latitude = db.Column(db.Float, nullable=True)
     is_geocoding_exact = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
