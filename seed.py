@@ -1,27 +1,95 @@
 # input code to pull from dataset
 
-from model import User, Resource, Vote, Wapo
-import pandas
-
-df = pandas.read_csv('data.csv', index_col = 'data_id')
-print(df)
-
-
-#   #   function if using import csv
-# def print_csv_data(filename):
-#     """Prints data from a .csv file.
-
-#     Inputs:
-#     - filename: string, name of the .csv file to be read
-
-#     Returns None.
-#     """
-
-#     with open(filename, 'test.csv') as csv_file:
-#         reader = csv.reader(csv_file)
-#         for row in reader:
-#             print(', '.join(row))
-#     csv_file.close()
+import os
+import csv
+import crud
+from server import app
+from model import Wapo, db, connect_to_db
+import datetime
+from faker import Faker
 
 
-# stretch goal - pull from updating dataset in WaPo (not MVP)
+# write helper functions here
+def cast_int(str):
+    try:
+        n = int(str)
+        return n
+    except (ValueError, TypeError):
+        return None
+
+def cast_float(str):
+    try:
+        n = float(str)
+        return n
+    except (ValueError, TypeError):
+        return None
+
+# #pull wapo data from csv file
+def seed_csv_data(filename):
+    with open(filename, 'r') as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            # if the key at this value is "True", set it to the boolean True instead
+            if row['signs_of_mental_illness'] == "True":
+                row['signs_of_mental_illness'] = True
+            else: 
+                row['signs_of_mental_illness'] = False
+            if row['body_camera'] == 'True':
+                row['body_camera'] = True
+            else:
+                row['body_camera'] = False
+            # if row['is_geocoding_exact'] == 'True':
+            #     row['is_geocoding_exact'] = True
+            # else:
+            #     row['is_geocoding_exact'] = False
+            for key in row:
+                if row[key] == '':
+                    row[key] = None
+            record = Wapo(
+            data_id = cast_int(row['data_id']),
+            name = row['name'],
+            date = datetime.datetime.strptime(row['date'], "%Y-%m-%d").date(),
+            manner_of_death = row['manner_of_death'],
+            armed = row['armed'],
+            age = cast_int(row['age']),
+            gender = row['gender'],
+            race = row['race'],
+            city = row['city'],
+            state = row['state'],
+            signs_of_mental_illness = row['signs_of_mental_illness'],
+            threat_level = row['threat_level'],
+            flee = row['flee'],
+            body_camera = row['body_camera'],
+            longitude = cast_float(row['longitude']),
+            latitude = cast_float(row['latitude']))
+            # is_geocoding_exact = row['is_geocoding_exact'])
+            db.session.add(record)
+            db.session.commit()
+    csv_file.close()
+
+
+def seed_users():
+    crud.create_user() x 10
+
+
+
+def seed_orgs():
+    x 10
+    "user10 created org1"
+
+
+# # stretch goal - pull from updating dataset in WaPo (not MVP)
+
+if __name__ == '__main__':
+    
+
+    # Call connect_to_db(app, echo=False) if your program output gets
+    # too annoying; this will tell SQLAlchemy not to print out every
+    # query it executes.
+    
+    os.system('dropdb wapo')
+    os.system('createdb wapo')
+    connect_to_db(app)
+    db.create_all()
+    # seed_csv_data('wapo_data.csv')
+    # uncomment if model.py + fake users & fake orgs aren't solid
