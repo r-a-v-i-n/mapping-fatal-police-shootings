@@ -18,7 +18,7 @@ def create_user(username, password, email, city, state):
 def create_org(org_name, url, email, phone, city, state, user_id):
     """Create and return a new resource/donation option."""
 
-    org = Resource(org_name=org_name, url=url, email=email, phone=phone, city=city, state=state, user_id=user_ud)
+    org = Resource(org_name=org_name, url=url, email=email, phone=phone, city=city, state=state, user_id=user_id)
 
     db.session.add(org)
     db.session.commit()
