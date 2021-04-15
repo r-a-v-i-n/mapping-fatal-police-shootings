@@ -1,0 +1,27 @@
+<!-- allow the user to log in to their existing account using their username and password -->
+<!-- there should be a shortcut off of this to create a new account -->
+
+
+{% extends 'base.html' %}
+{% block title %}Log In to your Account{% endblock %}
+
+{% block body %}
+
+  <h1>Log In to your Account</h1>
+
+  <form action="/login" method="POST">
+    <p>
+      Username <input type="text" name="username" required>
+    </p>
+    <p>
+      Password <input type="password" name="password" required>
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+  <ul>
+    Don't have an account? You can create one<li><a href="/sign_up">by clicking here</a></li>
+  </ul>
+ 
+{% endblock %}

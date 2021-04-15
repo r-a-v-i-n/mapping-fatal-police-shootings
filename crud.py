@@ -3,7 +3,9 @@
 from model import db, User, Resource, connect_to_db
 
 
-# Functions start here!
+
+# USER FUNCTIONS
+
 def create_user(username, password, email, city, state):
     """Create and return a new user."""
 
@@ -14,6 +16,39 @@ def create_user(username, password, email, city, state):
 
     return user
 
+
+def confirm_current_user(username):
+    """Return true or false depending on whether username already exists"""
+    
+    user = User.query.filter(User.username == username).first()
+
+    if user:
+        return True
+    
+    return False
+
+def find_user_by_username(username):
+    """ hjkhk """
+
+    user = User.query.filter(User.username == username).first()
+
+    return user
+
+
+def verify_unique_email(email):
+    """Return true or false depending on whether email already has an account attached"""
+    
+    email = User.query.filter(User.email == email).first()
+
+    if email:
+        return True
+    
+    return False
+
+
+
+
+# RESOURCE FUNCTIONS
 
 def create_org(org_name, url, email, phone, city, state, user_id):
     """Create and return a new resource/donation option."""
@@ -34,7 +69,12 @@ def list_resources():
 def get_resource_by_loc(city, state):
     get_resource = Resource.query.get(city, state)
     return get_resource.city, get_resource.state
-    
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,34 @@
+<!-- code in a page for users to create a user and add it to the users db -->
+<!-- this page should route back to the homepage, and flash an alert that states the user has created a login -->
+
+<!-- I would like to find a more aesthetically pleasing way to display the words Username, Password, etc, 
+in the way if you went to create an account on Google it's a "shadow" in the text box then moves above it... -->
+
+{% extends 'base.html' %}
+{% block title %}Create your Account{% endblock %}
+
+{% block body %}
+  <h1>Create your Account</h1>
+
+  <form action="/sign_up" method="POST">
+    <p>
+      Username <input type="text" name="username" required>
+    </p>
+    <p>
+      Password <input type="password" name="password" required>
+    </p>
+    <p>
+      Email <input type="text" name="email">
+    </p>
+    <p>
+      City <input type="text" name="city">
+    </p>
+    <p>
+      State <input type="text" name="state">
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+ 
+{% endblock %}

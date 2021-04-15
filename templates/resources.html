@@ -1,0 +1,39 @@
+<!-- this page should display a list of resources (currently randomized) -->
+<!-- it will also contain a field for the user to enter their own resource and add it to the db -->
+<!-- - in theory this ensures the user isn't entering a repeat resource, 
+    but I imagine I could code to make sure it's unique, right? -->
+
+
+{% extends 'base.html' %}
+{% block title %}Resources{% endblock %}
+
+{% block body %}
+  <h1>Organizations and Resources to Support</h1>
+  <p>
+  <h2>*imagine a list of organizations*</h2></p>
+  <p></p>
+  <form action="/resource" method="POST">
+    <p>
+      Organization name <input type="text" name="org_name" required>
+    </p>
+    <p>
+      URL <input type="url" name="url" required>
+    </p>
+    <p>
+      Email <input type="text" name="email">
+    </p>
+    <p>
+      Phone <input type="text" name="phone">
+    </p>
+    <p>
+      City <input type="text" name="city">
+    </p>
+    <p>
+      State <input type="text" name="state">
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+
+{% endblock %}

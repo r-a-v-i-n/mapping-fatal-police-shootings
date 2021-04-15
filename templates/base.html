@@ -1,0 +1,34 @@
+<!-- holds all consistent page fields -->
+<!-- display that the user is logged in one they've created an account -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+      {% block title %}{% endblock %}
+    </title>
+
+    {% block head %}
+    {% if "username" in session %}
+    <h1>Hello {{session.username}}</h3>
+    {% endif %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% endblock %}
+
+    {% block after_body %}{% endblock %}
+  </body>
+</html>
