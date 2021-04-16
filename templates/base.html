@@ -10,7 +10,7 @@
       {% block title %}{% endblock %}
     </title>
       {% block head %}
-      {% if 'username' in session %}
+      {% if 'user_id' in session %}
       Hello {{session.username}}
       {% endif %}
       {% endblock %}
@@ -19,6 +19,7 @@
         <li><a href="/logout">Logout</a></li>
         {% else %}
         <li><a href="/login">Login </a></li>
+        <li><a href="/sign_up">Sign Up</a></li>
         {% endif %}
     </ul>
   </head>

@@ -6169,7 +6169,7 @@ data_id,name,date,manner_of_death,allegedly_armed,age,gender,race,city,state,sig
 6737,Eric Leach,2021-03-26,shot,gun,36,M,W,Quincy,MA,False,other,Car,False,-71.005,42.243,True
 6732,Krys Brandon Ruiz,2021-03-28,shot,undetermined,26,M,H,Lompoc,CA,False,other,,False,-120.458,34.639,True
 6728,Matthew Blaylock,2021-03-29,shot,gun,38,M,B,Los Angeles,CA,False,other,Foot,False,-118.264,34.051,True
-6729,Adam Toledo,2021-03-29,shot,gun,13,M,,Chicago,IL,False,other,Foot,True,-87.708,41.85,True
+6729,Adam Toledo,2021-03-29,shot,undetermined,13,M,,Chicago,IL,False,other,Foot,True,-87.708,41.85,True
 6731,Robert Lee Canchola,2021-03-29,shot,gun,33,M,,Corpus Christi,TX,False,attack,Foot,True,-97.407,27.711,True
 6739,Shelby Jean Berkheimer,2021-03-30,shot,gun,41,F,W,Lithia Springs,GA,False,attack,Not fleeing,False,-84.621,33.787,True
 6752,Michael Leon Hughes,2021-03-30,shot,Taser,32,M,B,Jacksonville,FL,False,attack,Not fleeing,True,-81.743,30.197,True
