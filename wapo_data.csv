@@ -6208,5 +6208,8 @@ data_id,name,date,manner_of_death,allegedly_armed,age,gender,race,city,state,sig
 6770,,2021-04-10,shot,gun,,M,,Metairie,LA,False,attack,,False,-90.21,30.003,True
 6771,,2021-04-10,shot,undetermined,,M,,Rockford,IL,False,undetermined,,False,,,True
 6775,,2021-04-10,shot,knife,,M,,San Marcos,TX,False,attack,Not fleeing,False,-97.933,29.874,True
-6767,Daunte Wright,2021-04-11,shot,undetermined,20,M,B,Brooklyn,MN,False,undetermined,,True,-93.341,45.07,True
+6767,Daunte Wright,2021-04-11,shot,undetermined,20,M,B,Brooklyn,MN,False,other,,True,-93.341,45.07,True
 6768,,2021-04-12,shot,gun,,M,,Bremen,GA,False,attack,Car,False,-84.992,33.628,True
+6778,Peyton Ham,2021-04-13,shot,knife,16,M,,Leonardtown,MD,False,attack,Not fleeing,False,-76.634,38.3,True
+6779,,2021-04-14,shot,unknown weapon,,M,,Mars Hill,NH,False,undetermined,,False,-67.867,46.526,True
+6780,Marcelo Garcia,2021-04-14,shot and Tasered,knife,46,M,H,Houston,TX,True,other,,False,-95.157,29.812,True

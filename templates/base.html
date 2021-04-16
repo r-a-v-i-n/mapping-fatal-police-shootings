@@ -9,12 +9,18 @@
     <title>
       {% block title %}{% endblock %}
     </title>
-
-    {% block head %}
-    {% if "username" in session %}
-    <h1>Hello {{session.username}}</h3>
-    {% endif %}
-    {% endblock %}
+      {% block head %}
+      {% if 'username' in session %}
+      Hello {{session.username}}
+      {% endif %}
+      {% endblock %}
+    <ul>
+        {% if 'user_id' in session %}
+        <li><a href="/logout">Logout</a></li>
+        {% else %}
+        <li><a href="/login">Login </a></li>
+        {% endif %}
+    </ul>
   </head>
   <body>
     {% block body %}

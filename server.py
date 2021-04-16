@@ -26,6 +26,7 @@ def homepage():
     return render_template('homepage.html')
 
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def sign_in():
     """Sign in to user account"""
@@ -45,8 +46,6 @@ def sign_in():
             
             if password == user.password:
                 session['user_id'] = user.user_id
-                flash('Login successful, you can now contribute to Resources')
-                # make this an alert in sprint 2
                 return render_template('homepage.html') 
             
             else:
@@ -56,6 +55,15 @@ def sign_in():
     if request.method == 'GET':
 
         return render_template('login.html')
+
+
+
+@app.route('/logout')
+def log_out():
+    """Log out of account."""
+
+    session.pop('user_id', None)
+    return redirect('/')
    
 
 
