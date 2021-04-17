@@ -28,13 +28,13 @@ def confirm_current_user(username):
     return False
 
 def find_user_by_username(username):
-    """ hjkhk """
+    """Return user by searching for username."""
 
     user = User.query.filter(User.username == username).first()
 
     return user
 
-
+# not yet implemented, come back to this for /sign_up route
 def verify_unique_email(email):
     """Return true or false depending on whether email already has an account attached"""
     

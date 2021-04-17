@@ -99,7 +99,7 @@ def sign_up():
 
 
 
-@app.route('/resources')
+@app.route('/resources', methods=['POST'])
 def all_resources():
     """Return all resources entered by users."""
     

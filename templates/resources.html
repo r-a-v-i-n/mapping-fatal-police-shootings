@@ -11,8 +11,15 @@
   <h1>Organizations and Resources to Support</h1>
   <p>
   <h2>*imagine a list of organizations*</h2></p>
+  {{show_resources}}
+  <ul>
+  {% for resource in show_resources %}
+  <li>{{resource.org_name}}</li>
+  {% endfor %}
+  </ul>
   <p></p>
-  <form action="/resource" method="POST">
+  {% if 'user_id' in session %}
+  <form action="/resources" method="POST">
     <p>
       Organization name <input type="text" name="org_name" required>
     </p>
@@ -85,6 +92,9 @@
     <p>
       <input type="submit">
     </p>
+  {% else %}
+    Please <a href="/login">log in</a> or <a href="/sign_up">sign up</a> to contribute to resources.
+  {% endif %}
   </form>
 
 {% endblock %}
