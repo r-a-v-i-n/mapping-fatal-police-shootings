@@ -61,6 +61,17 @@ def create_org(org_name, url, email, phone, city, state, user_id):
     return org
 
 
+def confirm_current_org(org_name):
+    """Return true or false depending on whether org/resource already exists"""
+    
+    org = Resource.query.filter(Resource.org_name == org_name).first()
+
+    if org:
+        return True
+    
+    return False
+
+
 def list_resources():
     """Return all resources."""
     return Resource.query.all()

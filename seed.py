@@ -71,7 +71,7 @@ def seed_csv_data(filename):
 
 
 def seed_users():
-    for i in range(10):
+    for i in range(9):
         name = fake.name().split()
         username = ''.join(name)
         password = fake.password()
@@ -82,7 +82,7 @@ def seed_users():
 
 
 def seed_orgs():
-    for i in range(10):
+    for i in range(2):
         org_name = fake.company()
         url  = fake.url()
         email = fake.email()

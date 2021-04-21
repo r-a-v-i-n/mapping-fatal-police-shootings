@@ -34,7 +34,7 @@ class Resource(db.Model):
     __tablename__ = 'resources'
 
     org_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    org_name = db.Column(db.String(50), nullable=False)
+    org_name = db.Column(db.String(100), nullable=False)
     url = db.Column(db.String(100), nullable=True)
     email = db.Column(db.String(50), nullable=True)
     phone = db.Column(db.String(25), nullable=True)

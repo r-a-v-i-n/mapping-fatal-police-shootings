@@ -84,7 +84,6 @@ def sign_up():
 
             user =  crud.create_user(username, password, email, city, state)
             session['user_id'] = user.user_id
-            se
             flash('Account Creation Complete; you can now contribute to Resources')
             return render_template('homepage.html')
 
@@ -99,7 +98,37 @@ def sign_up():
 
 
 
-@app.route('/resources', methods=['POST'])
+@app.route('/create_orgs', methods=['GET', 'POST'])
+def create_orgs():
+    """Add a resource or organization to the db."""
+    if request.method == 'POST':
+
+        org_name = request.form.get('org_name')
+        url = request.form.get('url')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        city = request.form.get('city')
+        state = request.form.get('state')
+
+        org_in_db = crud.confirm_current_org(org_name)
+
+        if org_in_db == False:
+
+            org = crud.create_org(org_name, url, email, phone, city, state, user_id=session['user_id'])
+            session['org_id'] = org.org_id
+            flash('Organization has been added to the resources')
+            return redirect('/resources')
+
+        else:
+            flash('That organization is already in the resources')
+            return redirect('/resources') 
+    
+    if request.method == 'GET':
+        return redirect('/resources')
+
+
+
+@app.route('/resources', methods=['POST', 'GET'])
 def all_resources():
     """Return all resources entered by users."""
     
@@ -109,12 +138,7 @@ def all_resources():
 
 
 
-# @app.route('/movies/<movie_id>')
-# def show_movie(movie_id):
-#     """Show details on a particular movie."""
-#     get_movie = crud.get_movie_by_id(movie_id)
 
-#     return render_template('movie_details.html', get_movie=get_movie)
 
 
 if __name__ == '__main__':
