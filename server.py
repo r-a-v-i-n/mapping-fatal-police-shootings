@@ -138,6 +138,33 @@ def all_resources():
 
 
 
+@app.route("/api/map")
+def wapo_data():
+    """JSON information about bears."""
+
+    wapost = [
+        {
+            "data_id": wapost.data_id,
+            "name": wapost.name,
+            "date": wapost.date,
+            "manner_of_death": wapost.manner_of_death,
+            "allegedly_armed": wapost.allegedly_armed,
+            "age": wapost.age,
+            "gender": wapost.gender,
+            "race": wapost.gender,
+            "city": wapost.city
+            "state": wapost.state
+            "signs_of_mental_illness": wapost.signs_of_mental_illness
+            "alleged_threat_level": wapost.alleged_threat_level
+            "allegedly_fleeing": wapost.allegedly_fleeing
+            "body_camera": wapost.body_camera
+            "longitude": wapost.longitude
+            "latitude": wapost.latitude
+        }
+    ]
+
+    return jsonify(wapost)
+
 
 
 

@@ -7,7 +7,6 @@ db = SQLAlchemy()
 
 
 
-# Replace this with your code!
 class User(db.Model):
     """A user."""
 
@@ -92,6 +91,76 @@ class Wapo(db.Model):
         return f'<Wapo data_id = {self.data_id} date = {self.date} manner_of_death = {self.manner_of_death} age = {self.age} gender = {self.gender} race = {self.race} city = {self.city} state = {self.state}>'
 
 
+
+def test_data():
+    """Sample data to run tests with"""
+
+    User.query.delete()
+    Resource.query.delete()
+
+
+    #sample users
+    bjorn = User(username="bjorno", 
+                password="woofwoof626", 
+                email="haulinauss@gmail.com", 
+                city="Columbus", 
+                state="Ohio")
+    forest = User(username="forito", 
+                password="awoowoo29", 
+                email="maneater@yahoo.com", 
+                city="Detroit", 
+                state="Michigan")
+    rue = User(username="rueyruerue", 
+                password="Pigsnort918", 
+                email="sunsouttonguesout@gmail.com", 
+                city="Detroit", 
+                state="Michigan")
+    sawyer = User(username="sawybean", 
+                password="BORK1016", 
+                email="doesyourfacehanglow@yahoo.com", 
+                city="Kalamazoo", 
+                state="Michigan")
+    harvey = User(username="harvard", 
+                password="MOWWwww42", 
+                email="wheresmywetfood@harvard.edu", 
+                city="Canton", 
+                state="Ohio")
+
+    #sample resource data
+    dwb = Resource(org_name="Detroit Will Breathe", 
+                    url="https://detroitwillbreathe.info/", 
+                    email="detroitwillbreathe@protonmail.com", 
+                    phone="(313) 473-9658", 
+                    city="Detroit",
+                    state="Michigan")
+    aptp = Resource(org_name="Anti Police-Terror Project", 
+                    url="http://www.antipoliceterrorproject.org/", 
+                    email="aptpinfo@gmail.com", 
+                    phone="(123) 456-7890",
+                    city="Oakland",
+                    state="California")
+    cpa = Resource(org_name="Coalition for Police Accountability",
+                    url="https://www.coalitionforpoliceaccountability.com/",
+                    email="rashidah@coalitionforpoliceaccountability.com",
+                    phone="(510) 306-0253",
+                    city="Oakland",
+                    state="California")
+    cuapb = Resource(org_name="Communities United Against Police Brutality", 
+                    url="https://www.cuapb.org/",
+                    email="cuapb.mpls@gmail.com",
+                    phone="(612) 874-7867",
+                    city="Minneapolis",
+                    state="Minnesota")
+    capcr = Resource(org_name="Coalition Against Police Crimes & Repression",
+                    url="https://www.capcr-stl.org/",
+                    email="capcr2050@gmail.com",
+                    phone="(314) 332-1262 ",
+                    city="St. Louis",
+                    state="Missouri")
+   
+
+    db.session.add_all([bjorn, forest, rue, sawyer, harvey, dwb, aptp, cpa, cuapb, capcr])
+    db.session.commit()
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///wapo', echo=True):

@@ -3,7 +3,7 @@
 # if there are more -1 than +1, it will reflect the downvotes (& vice versa)
 from unittest import TestCase
 from server import app
-from model import connect_to_db, db, example_data
+from model import connect_to_db, db, test_data
 from flask import session
 
 
@@ -16,11 +16,7 @@ class FlaskTests(TestCase):
         app.config['TESTING'] = True
 
         
-    def test_index(self):
-        """Testing homepage"""
 
-        result = self.client.get("/")
-        self.assertIn(b"Welcome!", result.data)
 
 
 if __name__ == "__main__":
