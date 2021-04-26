@@ -17,19 +17,27 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     );
-}
+    // make a .get request to the server
+    // server will return WaPo data as json
+    $.get('/api/map', (data) => {
+     
+      const wapoInfo = new google.maps.InfoWindow();
+      for (const wapost of data) {
+        if (wapost.latitude === null) {
+          continue;
+        }
+        const wapoMarker = new google.maps.Marker({
+        position: {
+          lat: wapost.latitude,
+          lng: wapost.longitude
+        },
+        title: `Data ID: ${wapost.data_id}`,
+        map: basicMap,
+      });
+        const wapoInfoContent = (`
+          <div class="window-content">
 
-const wapoInfo = new google.maps.InfoWindow();
-
-// Retrieving the information with AJAX.
-//
-$.get('/api/map', (wapost) => {
-  for (const wapo of wapost) {
-    // Define the content of the infoWindow
-    const wapoInfoContent = (`
-      <div class="window-content">
-
-        <ul class="wapo-info">
+          <ul class="wapo-info">
           <li><b>Name: </b>${wapost.name}</li>
           <li><b>Date of Incident: </b>${wapost.date}</li>
           <li><b>Manner of Death: </b>${wapost.manner_of_death}</li>
@@ -48,20 +56,31 @@ $.get('/api/map', (wapost) => {
         </ul>
       </div>
     `);
+      wapoMarker.addListener('click', () => {
+        wapoInfo.close();
+        wapoInfo.setContent(wapoInfoContent);
+        wapoInfo.open(basicMap, wapoMarker);
+      });
+      }
+    })
 
-    const wapoMarker = new google.maps.Marker({
-      position: {
-        lat: wapost.latitude,
-        lng: wapost.longitude
-      },
-      title: `Data ID: ${wapo.data_id}`,
-      map: map,
-    });
+}
 
-    wapoMarker.addListener('click', () => {
-      wapoInfo.close();
-      wapoInfo.setContent(wapoInfoContent);
-      wapoInfo.open(map, wapoMarker);
-    });
-  }
-});
+
+
+  //   # option 1:
+  //   # use geolocation
+  //   # (not a google maps things, it's built into js)
+  //   # - this will ask the user "can I know where you are"
+  //   # this will return the result as lat-long coords
+  //   # which can be plugged into map
+  //     look at the geolocation api in JS
+
+  //   # option 2:
+  //   # use what's stored about the user
+  //   # initMap --> ajax request --> geocoder --> ajax --> map logic
+  //   # lots o nesting
+  //   # make an ajax request to the server to get user info from db
+  //   # use google maps geocoder
+  //     give the string of user loc to the geocoder, geocoder produces lat-long
+  //     continue on with code I have, uses the same logic

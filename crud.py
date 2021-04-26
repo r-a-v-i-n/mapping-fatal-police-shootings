@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, User, Resource, connect_to_db
+from model import db, User, Resource, Wapo, connect_to_db
 
 
 
@@ -83,7 +83,8 @@ def get_resource_by_loc(city, state):
 
 
 
-
+def get_wapo_data():
+    return Wapo.query.all()
 
 
 

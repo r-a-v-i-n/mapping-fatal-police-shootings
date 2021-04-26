@@ -9,10 +9,11 @@
 # display map
 
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
+                   redirect, jsonify)
 from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -140,30 +141,37 @@ def all_resources():
 
 @app.route("/api/map")
 def wapo_data():
-    """JSON information about bears."""
+    """JSON information about wapo data."""
+    # query the db for all records
+    # loop through the records - format them nicely in a dictionary
+    # return dictionary as json
 
-    wapost = [
-        {
-            "data_id": wapost.data_id,
-            "name": wapost.name,
-            "date": wapost.date,
-            "manner_of_death": wapost.manner_of_death,
-            "allegedly_armed": wapost.allegedly_armed,
-            "age": wapost.age,
-            "gender": wapost.gender,
-            "race": wapost.gender,
-            "city": wapost.city
-            "state": wapost.state
-            "signs_of_mental_illness": wapost.signs_of_mental_illness
-            "alleged_threat_level": wapost.alleged_threat_level
-            "allegedly_fleeing": wapost.allegedly_fleeing
-            "body_camera": wapost.body_camera
-            "longitude": wapost.longitude
-            "latitude": wapost.latitude
-        }
-    ]
+    wapo_records = crud.get_wapo_data()
+    records = []
+    for wapost in wapo_records:
+        date = datetime(wapost.date.year, wapost.date.month, wapost.date.day)
+        date_string = date.strftime("%m-%d-%Y")
+        data = {
+                "data_id": wapost.data_id,
+                "name": wapost.name,
+                "date": date_string,
+                "manner_of_death": wapost.manner_of_death,
+                "allegedly_armed": wapost.allegedly_armed,
+                "age": wapost.age,
+                "gender": wapost.gender,
+                "race": wapost.gender,
+                "city": wapost.city,
+                "state": wapost.state,
+                "signs_of_mental_illness": wapost.signs_of_mental_illness,
+                "alleged_threat_level": wapost.alleged_threat_level,
+                "allegedly_fleeing": wapost.allegedly_fleeing,
+                "body_camera": wapost.body_camera,
+                "longitude": wapost.longitude,
+                "latitude": wapost.latitude
+            }
+        records.append(data)
 
-    return jsonify(wapost)
+    return jsonify(records)
 
 
 
@@ -171,3 +179,4 @@ def wapo_data():
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
+
