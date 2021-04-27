@@ -106,7 +106,7 @@ if __name__ == '__main__':
     os.system('createdb wapo')
     connect_to_db(app)
     db.create_all()
-    # seed_csv_data('wapo_data.csv')
+    seed_csv_data('wapo_data.csv')
     seed_users()
     seed_orgs()
     # uncomment if model.py + fake users & fake orgs aren't solid
