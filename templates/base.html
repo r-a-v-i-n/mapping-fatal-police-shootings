@@ -45,7 +45,7 @@
         <a href="/about">About</a>
 
       <div class="topnav-right">
-        {% if 'user_id' in session %}
+        {% if 'username' in session %}
         Hello {{session.username}}
         <a href="/logout">Logout</a></li>
         {% else %}

@@ -78,7 +78,7 @@ function initMap() {
           {
             featureType: "water",
             elementType: "geometry",
-            stylers: [{ color: "#99d7e3" }],
+            stylers: [{ color: "#377771" }],
           },
           {
             featureType: "water",
@@ -223,3 +223,5 @@ function initMap() {
   //   # use google maps geocoder
   //     give the string of user loc to the geocoder, geocoder produces lat-long
   //     continue on with code I have, uses the same logic
+
+  // water - 99d7e3

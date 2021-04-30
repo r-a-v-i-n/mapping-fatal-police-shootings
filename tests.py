@@ -36,7 +36,7 @@ class FlaskTestsDatabase(TestCase):
 
         # Create tables and add sample data
         db.create_all()
-        example_data()
+        test_data()
 
     def tearDown(self):
         """Run this at the end of every test."""
@@ -55,7 +55,7 @@ class FlaskTestsDatabase(TestCase):
                                         "city":"Columbus", 
                                         "state":"Ohio"},
                                    follow_redirects=True)
-        self.assertIn(b'<h1>Create your Account</h1>', result.data)
+        self.assertIn(b'<h1>Log In to your Account</h1>', result.data)
 
     def test_login(self):
         """Test login"""
@@ -64,12 +64,19 @@ class FlaskTestsDatabase(TestCase):
                                    data={"username":"bjorno", 
                                         "password":"woofwoof626"},
                                    follow_redirects=True)
-        self.assertIn(b'<h1>Log In to your Account</h1>', result.data)
+        self.assertIn(b'<h1>MAPPING FATAL POLICE SHOOTINGS</h1>', result.data)
     
     def test_resources(self):
-        """Tests the resources page"""
+        """Test the resources page"""
 
-        result = self.client.get('/resources')
+        result = self.client.get('/resources',
+                                data={"org_name":"Detroit Will Breathe", 
+                                        "url":"https://detroitwillbreathe.info/", 
+                                        "email":"detroitwillbreathe@protonmail.com", 
+                                        "phone":"(313) 473-9658", 
+                                        "city":"Detroit",
+                                        "state":"Michigan"},
+                                follow_redirects=True)
         self.assertIn(b'<h1>Organizations and Resources to Support</h1>', result.data)
 
 
