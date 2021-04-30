@@ -10,13 +10,67 @@ from flask import session
 class FlaskTests(TestCase):
 
     def setUp(self):
-        """Run this before every test"""
+        """Run code before each test"""
         
         self.client = app.test_client()
         app.config['TESTING'] = True
 
-        
+    def test_index(self):
+        """Test homepage"""
 
+        result = self.client.get("/")
+        self.assertIn(b"Home", result.data)
+
+
+class FlaskTestsDatabase(TestCase):
+
+    def setUp(self):
+        """Run code before each test"""
+
+        # Get the Flask test client
+        self.client = app.test_client()
+        app.config['TESTING'] = True
+
+        # Connect to test database
+        connect_to_db(app, "postgresql:///testdb")
+
+        # Create tables and add sample data
+        db.create_all()
+        example_data()
+
+    def tearDown(self):
+        """Run this at the end of every test."""
+
+        db.session.remove()
+        db.drop_all()
+        db.engine.dispose()
+    
+    def test_signup(self):
+        """Test sign up"""
+
+        result = self.client.post('/sign_up',
+                                   data={"username":"bjorno", 
+                                        "password":"woofwoof626", 
+                                        "email":"haulinauss@gmail.com", 
+                                        "city":"Columbus", 
+                                        "state":"Ohio"},
+                                   follow_redirects=True)
+        self.assertIn(b'<h1>Create your Account</h1>', result.data)
+
+    def test_login(self):
+        """Test login"""
+
+        result = self.client.post('/login',
+                                   data={"username":"bjorno", 
+                                        "password":"woofwoof626"},
+                                   follow_redirects=True)
+        self.assertIn(b'<h1>Log In to your Account</h1>', result.data)
+    
+    def test_resources(self):
+        """Tests the resources page"""
+
+        result = self.client.get('/resources')
+        self.assertIn(b'<h1>Organizations and Resources to Support</h1>', result.data)
 
 
 if __name__ == "__main__":

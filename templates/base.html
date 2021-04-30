@@ -1,6 +1,3 @@
-<!-- holds all consistent page fields -->
-<!-- display that the user is logged in one they've created an account -->
-
 <!doctype html>
 <html>
   <head>
@@ -15,18 +12,50 @@
       {% block title %}{% endblock %}
     </title>
       {% block head %}
-      {% if 'user_id' in session %}
-      Hello {{session.username}}
-      {% endif %}
-      {% endblock %}
-    <ul>
+    <style>
+    .topnav {
+        background-color: #DD4B3E;
+        overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #DD4B3E;
+      color: black;
+    }
+
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+      float: right;
+    }
+    </style>
+      <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/resources">Resources</a>
+        <a href="/about">About</a>
+
+      <div class="topnav-right">
         {% if 'user_id' in session %}
-        <li><a href="/logout">Logout</a></li>
+        Hello {{session.username}}
+        <a href="/logout">Logout</a></li>
         {% else %}
-        <li><a href="/login">Login </a></li>
-        <li><a href="/sign_up">Sign Up</a></li>
+        <a href="/login">Login </a></li>
+        <a href="/sign_up">Sign Up</a></li>
         {% endif %}
-    </ul>
+      </div>
+      </div>
+      {% endblock %}
+
   </head>
   <body>
     {% block body %}

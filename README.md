@@ -12,4 +12,8 @@ Per The Post's github: "The Post is documenting only those shootings in which a 
 <p>Pull in Google Maps API</p>
 <p>Link data from WaPo dataset to markers on Google Map</p>
 <p>Customize map to webapp theme</p>
-<p>Spend a week making the webapp visually more appealing</p>
+<p>Implement Bootstrap</p>
+<p>Run tests on code</p>
+
+
+<p>Make the webapp visually more appealing</p>

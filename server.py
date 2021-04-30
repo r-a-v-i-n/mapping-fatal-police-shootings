@@ -159,7 +159,7 @@ def wapo_data():
                 "allegedly_armed": wapost.allegedly_armed,
                 "age": wapost.age,
                 "gender": wapost.gender,
-                "race": wapost.gender,
+                "race": wapost.race,
                 "city": wapost.city,
                 "state": wapost.state,
                 "signs_of_mental_illness": wapost.signs_of_mental_illness,

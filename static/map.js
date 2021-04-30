@@ -1,29 +1,29 @@
 "use strict;"
 
 function initMap() {
-    const detroitCoords = {
-        lat: 42.43334,
-        lng: -83.12840
+    const centerCoords = {
+        lat: 48.2283,
+        lng: -98.5795
     };
 
     const basicMap = new google.maps.Map(
         document.querySelector('#map'),
         {
-        center: detroitCoords,
+        center: centerCoords,
         zoom: 3,
         styles: [
-          { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+          { elementType: "geometry", stylers: [{ color: "#000000" }] },
           { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-          { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+          { elementType: "labels.text.fill", stylers: [{ color: "#ffffff" }] },
           {
             featureType: "administrative.locality",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#d59563" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "poi",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#d59563" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "poi.park",
@@ -53,7 +53,7 @@ function initMap() {
           {
             featureType: "road.highway",
             elementType: "geometry",
-            stylers: [{ color: "#746855" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "road.highway",
@@ -63,7 +63,7 @@ function initMap() {
           {
             featureType: "road.highway",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#f3d19c" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "transit",
@@ -73,12 +73,12 @@ function initMap() {
           {
             featureType: "transit.station",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#d59563" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "water",
             elementType: "geometry",
-            stylers: [{ color: "#17263c" }],
+            stylers: [{ color: "#99d7e3" }],
           },
           {
             featureType: "water",
