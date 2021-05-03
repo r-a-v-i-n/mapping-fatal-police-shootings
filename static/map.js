@@ -25,31 +25,31 @@ function initMap() {
             elementType: "labels.text.fill",
             stylers: [{ color: "#ffffff" }],
           },
-          {
-            featureType: "poi.park",
-            elementType: "geometry",
-            stylers: [{ color: "#263c3f" }],
-          },
-          {
-            featureType: "poi.park",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#6b9a76" }],
-          },
-          {
-            featureType: "road",
-            elementType: "geometry",
-            stylers: [{ color: "#38414e" }],
-          },
-          {
-            featureType: "road",
-            elementType: "geometry.stroke",
-            stylers: [{ color: "#212a37" }],
-          },
-          {
-            featureType: "road",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#9ca5b3" }],
-          },
+          // {
+          //   featureType: "poi.park",
+          //   elementType: "geometry",
+          //   stylers: [{ color: "#263c3f" }],
+          // },
+          // {
+          //   featureType: "poi.park",
+          //   elementType: "labels.text.fill",
+          //   stylers: [{ color: "#6b9a76" }],
+          // },
+          // {
+          //   featureType: "road",
+          //   elementType: "geometry",
+          //   stylers: [{ color: "#38414e" }],
+          // },
+          // {
+          //   featureType: "road",
+          //   elementType: "geometry.stroke",
+          //   stylers: [{ color: "#212a37" }],
+          // },
+          // {
+          //   featureType: "road",
+          //   elementType: "labels.text.fill",
+          //   stylers: [{ color: "#9ca5b3" }],
+          // },
           {
             featureType: "road.highway",
             elementType: "geometry",
@@ -78,17 +78,17 @@ function initMap() {
           {
             featureType: "water",
             elementType: "geometry",
-            stylers: [{ color: "#377771" }],
+            stylers: [{ color: "#439D94" }],
           },
           {
             featureType: "water",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#515c6d" }],
+            stylers: [{ color: "#ffffff" }],
           },
           {
             featureType: "water",
             elementType: "labels.text.stroke",
-            stylers: [{ color: "#17263c" }],
+            stylers: [{ color: "#242f3e" }],
           },
         ],
         zoomControl: true,
