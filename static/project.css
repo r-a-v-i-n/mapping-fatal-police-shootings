@@ -1,13 +1,24 @@
-/* 
+
 #map {
   height: 100%;
 }
 
 /* Optional: Makes the sample page fill the window. */
-/* html,
+html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #000000;
-} */ */
+}
+
+/* make something that selects pac-input, give it styles
+try to select with css, put a style in css stylesheet
+
+or
+
+select in js, add styles to js
+
+or 
+
+option 1, but look up "important" in css and add to css to override other defaults */

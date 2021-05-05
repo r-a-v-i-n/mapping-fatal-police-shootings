@@ -28,6 +28,12 @@ def homepage():
 
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def sign_in():
     """Sign in to user account"""
@@ -47,6 +53,7 @@ def sign_in():
             
             if password == user.password:
                 session['user_id'] = user.user_id
+                session['username'] = user.username
                 return render_template('homepage.html') 
             
             else:

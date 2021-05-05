@@ -55,7 +55,7 @@ class FlaskTestsDatabase(TestCase):
                                         "city":"Columbus", 
                                         "state":"Ohio"},
                                    follow_redirects=True)
-        self.assertIn(b'<h1>Log In to your Account</h1>', result.data)
+        self.assertIn(b'<h1>LOG IN TO YOUR ACCOUNT</h1>', result.data)
 
     def test_login(self):
         """Test login"""
@@ -77,7 +77,7 @@ class FlaskTestsDatabase(TestCase):
                                         "city":"Detroit",
                                         "state":"Michigan"},
                                 follow_redirects=True)
-        self.assertIn(b'<h1>Organizations and Resources to Support</h1>', result.data)
+        self.assertIn(b'<h1>ORGANIZATIONS AND RESOURCES TO SUPPORT</h1>', result.data)
 
 
 if __name__ == "__main__":

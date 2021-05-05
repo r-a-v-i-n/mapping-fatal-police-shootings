@@ -11,20 +11,24 @@
       {% block title %}{% endblock %}
     </title>
       {% block head %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
     <style>
     .topnav {
         background-color: #DD4B3E;
         overflow: hidden;
+        color:white;
+        font-family: 'Inconsolata', monospace;
     }
 
     /* Style the links inside the navigation bar */
-    .topnav a {
+    .topnav a, #nav-username {
       float: left;
       color: white;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      font-size: 17px;
+      font-size: 18px;
     }
 
     /* Change the color of links on hover */
@@ -38,18 +42,19 @@
       float: right;
     }
     </style>
+
       <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/resources">Resources</a>
-        <a href="/about">About</a>
+        <a class="active" href="/">home</a>
+        <a href="/resources">resources</a>
+        <a href="/about">about</a>
 
       <div class="topnav-right">
         {% if 'user_id' in session %}
-        Hello {{session.username}}
-        <a href="/logout">Logout</a></li>
+        <div id="nav-username">hello {{session.username.lower()}}</div>
+        <a href="/logout">logout</a></li>
         {% else %}
-        <a href="/login">Login </a></li>
-        <a href="/sign_up">Sign Up</a></li>
+        <a href="/login">login</a></li>
+        <a href="/sign_up">sign up</a></li>
         {% endif %}
       </div>
       </div>

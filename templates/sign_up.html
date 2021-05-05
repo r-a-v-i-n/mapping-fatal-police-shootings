@@ -5,26 +5,42 @@
 in the way if you went to create an account on Google it's a "shadow" in the text box then moves above it... -->
 
 {% extends 'base.html' %}
-{% block title %}Create your Account{% endblock %}
+{% block title %}Mapping Fatal Police Shootings: Create your Account{% endblock %}
 
 {% block body %}
-  <h1>Create your Account</h1>
-
-  <form action="/sign_up" method="POST">
+<html>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
+      <style>
+      h1
+      {
+      color:white;
+      font-family: 'Inconsolata', monospace;
+      }
+      body {
+      color: white
+      }
+      </style>
+      <br>
+  <center><h1>CREATE YOUR ACCOUNT</h1></center>
+  <br>
+  <center><form action="/sign_up" method="POST">
     <p>
-      Username <input type="text" name="username" required>
+    <input name="username" type="text" style="color:black" placeholder="username" required>
     </p>
     <p>
-      Password <input type="password" name="password" required>
+    <input name="password" type="password" style="color:black" placeholder="password" required>
     </p>
     <p>
-      Email <input type="text" name="email">
+    <input name="email" type="text" style="color:black" placeholder="email">
     </p>
     <p>
-      City <input type="text" name="city">
+    <input name="city" type="text" style="color:black" placeholder="city">
     </p>
     <p>
-      State <select name = "state">
+    <!-- <input name="state" type="text" style="color:black" placeholder="state"> -->
+    <select name="state" style="color: black">
+        <option style="color:#999" value="" disabled selected>state</option>
         <option value="alabama">Alabama</option>
         <option value="alaska">Alaska</option>
         <option value="arizona">Arizona</option>
@@ -78,8 +94,9 @@ in the way if you went to create an account on Google it's a "shadow" in the tex
       </select>
     </p>
     <p>
-      <input type="submit">
+      <input type="submit" style="color:white; background-color:#439D94">
     </p>
-  </form>
+  </form></center>
+</html>
  
 {% endblock %}

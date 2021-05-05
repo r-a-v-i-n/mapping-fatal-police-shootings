@@ -3,25 +3,38 @@
 
 
 {% extends 'base.html' %}
-{% block title %}Log In to your Account{% endblock %}
+{% block title %}Mapping Fatal Police Shootings: Log In to your Account{% endblock %}
 
 {% block body %}
-
-  <h1>Log In to your Account</h1>
-
-  <form action="/login" method="POST">
+<html>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
+      <style>
+      h1
+      {
+      color:white;
+      font-family: 'Inconsolata', monospace;
+      }
+      body {
+      color: white
+      }
+      </style>
+      <br>
+  <center><h1>LOG IN TO YOUR ACCOUNT</h1></center>
+  <br>
+  <center><form action="/login" method="POST">
     <p>
-      Username <input type="text" name="username" required>
+      <input name="username" type="text" style="color:black" placeholder="username" required>
     </p>
     <p>
-      Password <input type="password" name="password" required>
+      <input name="password" type="password" style="color:black" placeholder="password" required>
     </p>
     <p>
-      <input type="submit">
+      <input type="submit" style="color:white; background-color:#439D94">
     </p>
   </form>
-  <ul>
-    Don't have an account? You can create one<li><a href="/sign_up">by clicking here</a></li>
-  </ul>
+  
+    Don't have an account? <br> You can create one by <a href="/sign_up" style="color:#439D94">clicking here</a>
+  </center>
  
 {% endblock %}

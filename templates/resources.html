@@ -1,38 +1,59 @@
 
 {% extends 'base.html' %}
-{% block title %}Resources{% endblock %}
+{% block title %}Mapping Fatal Police Shootings: Resources{% endblock %}
 
 {% block body %}
-  <h1>Organizations and Resources to Support</h1>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
+<style>
+  h1
+  {
+  color:white;
+  font-family: 'Inconsolata', monospace;
+  }
+  body {
+    color: white
+  }
+</style>
+  <center><h1>ORGANIZATIONS AND RESOURCES TO SUPPORT</h1></center>
   <p></p>
   <form action="/resources" method="POST">
+  <br>
   <ul>
   {% for resource in show_resources %}
-  <li>{{resource.org_name}}  |  {{resource.url}}  |  {{resource.email}}  |  {{resource.phone}}  |  {{resource.city}}  |  {{resource.state}}</li>
-
+  <li>{{resource.org_name}}  |  
+      <a href="{{resource.url}}" style="color: #439D94">{{resource.url}}</a> |  
+      <a href="mailto: {{resource.email}}" style="color: #439D94">{{resource.email}}</a>  |  
+      {{resource.phone}}  |  
+      {{resource.city}}  |  
+      {{resource.state}}</li>
+  <br>
   {% endfor %}
   </ul>
   </form> 
-  <p></p>
+  <br>
   {% if 'user_id' in session %}
+  <center><p>Do you have an organization or resource to contribute?</p><br>
   <form action="/create_orgs" method="POST">
     <p>
-      Organization name <input type="text" name="org_name" required>
+    <input name="org_name" type="text" style="color: black" placeholder="organization name" required>
     </p>
     <p>
-      URL <input type="url" name="url" required>
+    <input name="url" type="url" style="color: black" placeholder="url" required>
     </p>
     <p>
-      Email <input type="text" name="email">
+    <input name="email" type="text" style="color: black" placeholder="email">
     </p>
     <p>
-      Phone <input type="text" name="phone">
+    <input name="phone" type="text" style="color: black" placeholder="phone">
     </p>
     <p>
-      City <input type="text" name="city">
+    <input name="city" type="text" style="color: black" placeholder="city">
     </p>
     <p>
-      State <select name = "state">
+    <!-- <input name="state" type="text" style="color:black" placeholder="state"> -->
+    <select name="state" style="color: black">
+        <option style="color:#999" value="" disabled selected>state</option>
         <option value="Alabama">Alabama</option>
         <option value="Alaska">Alaska</option>
         <option value="Arizona">Arizona</option>
@@ -86,10 +107,11 @@
       </select>
     </p>
     <p>
-      <input type="submit">
-    </p>
+      <input type="submit" style="color:white; background-color:#439D94">
+    </p></center>
   {% else %}
-    Please <a href="/login">log in</a> or <a href="/sign_up">sign up</a> to contribute to resources.
+    <center>Please <a href="/login" style="color:#439D94">log in</a> or 
+    <a href="/sign_up" style="color:#439D94">sign up</a> to contribute to resources.</center>
   {% endif %}
   </form>
 
