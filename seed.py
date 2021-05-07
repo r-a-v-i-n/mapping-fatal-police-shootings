@@ -82,7 +82,7 @@ def seed_users():
 
 
 def seed_orgs():
-    for i in range(2):
+    for i in range(0):
         org_name = fake.company()
         url  = fake.url()
         email = fake.email()

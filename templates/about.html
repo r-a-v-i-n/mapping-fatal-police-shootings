@@ -3,6 +3,7 @@
 {% block title %}Mapping Fatal Police Shootings: About{% endblock %}
 
 {% block body %}
+
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
 <style>
@@ -14,14 +15,75 @@
   body {
     color: white
   }
+   h3
+  {
+  color:white;
+  font-family: 'Inconsolata', monospace;
+  }
+  body {
+    color: white
+  }
 </style>
   <center><h1>ABOUT THIS PROJECT</h1></center>
-  <p></p>
+<style>
+  .row {
+    margin-right: 275px;
+    margin-left: 275px;
+  }</style>
+  <div class="row">
   <br>
-  <br>
-  Per The Post's github: "The Post is documenting only those shootings in which a police officer, in the line of duty, shoots and kills a civilian — the circumstances that most closely parallel the 2014 killing of Michael Brown in Ferguson, Mo., which began the protest movement culminating in Black Lives Matter and an increased focus on police accountability nationwide. The Post is not tracking deaths of people in police custody, fatal shootings by off-duty officers or non-shooting deaths."
-  <br>
+
+<p style="text-align:justify">
+  This project displays an interactive map using <a href="https://github.com/washingtonpost/data-police-shootings" 
+  style="color:#439D94">The Washington Post's dataset</a> of every fatal shooting in the United States by a police officer in 
+  the line of duty since January 1, 2015. 
+</p>
+
+<p style="text-align:justify">
+  The map, created using Google Maps APIs, displays a marker for every incident; when you click the marker, 
+  the details surrounding the incident are displayed. The map has a search box feature that changes the map 
+  display to a specific location, as well as normative map functionalities. The webapp features the ability 
+  to sign up for an account, log in/ log out, and a resources page, where logged in users can contribute to a 
+  list of resources and organizations that address police accountability.
+</p>
+  <p>
   
-  </form>
+<p><h3>TECHNOLOGIES USED</p></h3>
+<ul>
+<li>Languages/Frameworks - Python, Javascript, SQLAlchemy, HTML, CSS, Flask, Bootstrap</li>
+<li>Databases/Other Tech - PostgreSQL, Jinja, Json, jQuery</li>
+<li>APIs - Google Maps APIs (Maps JavaScript API, Places API)
+</ul>
+
+<p><h3>FUTURE GOALS</h3></p>
+<ul>
+<li>Work toward having the full webapp work with a screen reader and offer greater accessibility</li>
+<li>Use ChartsJS to break down the dataset into visual represtations</li>
+<li>Add a sort feature to the Resources page</li>
+<li>Create an upvote/downvote system for user-submitted resources</li>
+</ul>
+</p>
+
+<br>
+<center><h1>ABOUT THE DEVELOPER</h1></center><br>
+<p style="text-align:justify">
+Kelsey Ravin is a former social worker with experience working with individuals living with severe mental health 
+issues, addictions, homelessness, sexual assault, and/or HIV. She earned a Bachelors in Psychology from Kent State 
+University, graduating with departmental honors for her thesis defense on eating disorders, and obtained most of 
+her Masters in Social Work. Kelsey discovered a love for coding in her downtime during the pandemic, and was 
+elated by the opportunity to join Hackbright Academy through Perficient's sponsored cohort. Kelsey is driven, 
+passionate about helping others, has a deep-rooted love for learning and continued growth, and is excited to 
+explore advancing inclusion & equity in tech through software engineering.</p>
+<h3>CONTACT</h3>
+<p>
+<ul>
+    <li><a href="mailto: kelsey.ravin@gmail.com" style="color:#439D94">Email</a></li>
+    <li><a href="https://github.com/r-a-v-i-n" target="_blank" rel="noopener noreferrer" style="color:#439D94">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/kelsey-ravin" target="_blank" rel="noopener noreferrer" style="color:#439D94">LinkedIn</a></li>
+</ul>
+<br><br>
+</p>
+
+</div>
 
 {% endblock %}

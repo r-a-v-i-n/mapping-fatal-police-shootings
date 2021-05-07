@@ -22,8 +22,8 @@
   <ul>
   {% for resource in show_resources %}
   <li>{{resource.org_name}}  |  
-      <a href="{{resource.url}}" style="color: #439D94">{{resource.url}}</a> |  
-      <a href="mailto: {{resource.email}}" style="color: #439D94">{{resource.email}}</a>  |  
+      <a href="{{resource.url}}" style="color: #439D94" target="_blank" rel="noopener noreferrer">{{resource.url}}</a> |  
+      <a href="mailto: {{resource.email}}" style="color: #439D94" target="_blank" rel="noopener noreferrer">{{resource.email}}</a>  |  
       {{resource.phone}}  |  
       {{resource.city}}  |  
       {{resource.state}}</li>
