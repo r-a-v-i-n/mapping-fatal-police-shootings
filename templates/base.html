@@ -51,10 +51,10 @@
       <div class="topnav-right">
         {% if 'user_id' in session %}
         <div id="nav-username">hello {{session.username.lower()}}</div>
-        <a href="/logout">logout</a></li>
+        <a href="/logout">logout</a>
         {% else %}
-        <a href="/login">login</a></li>
-        <a href="/sign_up">sign up</a></li>
+        <a href="/login">login</a>
+        <a href="/sign_up">sign up</a>
         {% endif %}
       </div>
       </div>
